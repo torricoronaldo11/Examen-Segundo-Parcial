@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<link href="imagenprincipal" rel="stylesheet">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Examen Parcial - Maquetación y CRUD con IndexedDB</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <header class="top-nav">
+        <div class="nav-inner">
+            <div class="nav-left">
+                <div class="logo">
+                    <img src="logoempresa.png" alt="logoempresa" />
+                </div>
+            </div>
+
+            <div class="nav-center">
+                <a href="#">Productos</a>
+                <a href="#">soluciones</a>
+                <a href="#">Comunidad</a>
+                <a href="#">Recursos</a>
+                <a href="#">Precios</a>
+                <a href="#">Contactos</a>
+                <a href="#">enlace</a>
+            </div>
+
+            <div class="nav-right">
+                <button class="btn-nav">Iniciar sesión </button>
+                <button class="btn-nav dark">Registrar</button>
+            </div>
+        </div>
+    </header>
+
+
+    <section class="hero hero-computadoras">
+        <h1>Venta de Computadoras</h1>
+        <p class="subtitle">Equipos, accesorios y tecnología de última generación.</p>
+    </section>
+
+
+    <main class="container">
+
+        <div class="cards-row">
+
+            <div class="card">
+                <h3>Categorías</h3>
+                <form id="categoriaForm" class="small-form">
+                    <input type="hidden" id="categoriaId" />
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" id="catNombre" placeholder="Nombre" required />
+                        </div>
+                        <button type="submit" class="btn blue">Agregar</button>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Descripción</label>
+                            <input type="text" id="catDescripcion" placeholder="Descripción" />
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn gray" id="catActualizar">Actualizar</button>
+                            <button type="button" class="btn red" id="catBorrar">Borrar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="card">
+                <h3>Productos</h3>
+                <form id="productoForm" class="small-form">
+                    <input type="hidden" id="productoId" />
+
+                    <div class="input-group">
+                        <div class="input-with-button">
+                            <div class="field">
+                                <label>Nombre</label>
+                                <input type="text" id="prodNombre" placeholder="Nombre del producto" required />
+                            </div>
+                            <button type="submit" class="btn blue">Agregar</button>
+                        </div>
+                    </div>
+
+                    <div class="row-two">
+                        <div class="field">
+                            <label>Precio</label>
+                            <input type="number" id="prodPrecio" placeholder="0" min="0" required />
+                        </div>
+
+                        <div class="field">
+                            <label>Categoría</label>
+                            <select id="prodCategoria" required>
+          <option value="">-- Selecciona --</option>
+        </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+            <section class="table-section">
+                <table id="productosTable">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Categoría</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+    </main>
+
+    <section class="cards-list">
+        <h2>Encabezado</h2>
+        <p class="subtitle">Subencabezado</p>
+
+        <div class="card-horizontal">
+            <img src="imagen1.png" alt="Imagen 1" />
+            <div class="card-content">
+                <h4>Lenovo IdeaPad</h4>
+                <p>Potente y ligera, ideal para estudiantes y profesionales. Su batería de larga duración y diseño moderno la convierten en una excelente opción para el trabajo diario o clases virtuales..</p>
+                <button class="btn gray small">Boton</button>
+            </div>
+        </div>
+
+        <div class="card-horizontal">
+            <img src="gamer.jpg" alt="Imagen 2" />
+            <div class="card-content">
+                <h4>PC Gamer</h4>
+                <p>Diseñada para el máximo rendimiento en juegos exigentes. Equipada con tarjeta gráfica dedicada, sistema de refrigeración avanzada y luces RGB personalizables..</p>
+                <button class="btn gray small">Boton</button>
+            </div>
+        </div>
+
+        <div class="card-horizontal">
+            <img src="hpimagen.jpg" alt="Imagen 3" />
+            <div class="card-content">
+                <h4>HP Pavilion</h4>
+                <p> Una laptop versátil para el hogar o la oficina. Ofrece velocidad, elegancia y una excelente relación calidad-precio, con procesadores Intel de última generación.</p>
+                <button class="btn gray small">Boton</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="cards-grid">
+        <h2>Ofertas en Computadoras</h2>
+        <p class="subtitle">Equipos potentes para oficina, diseño y gaming</p>
+
+        <div class="grid-container">
+            <div class="card-box">
+                <img src="PROBOOK.jpg" alt="Laptop moderna" />
+                <h4>Laptop HP ProBook</h4>
+                <p>Ideal para trabajo de oficina y estudios. Procesador Intel Core i5, SSD de 512 GB y pantalla Full HD.</p>
+                <button class="btn gray small">Ver más</button>
+            </div>
+
+            <div class="card-box">
+                <img src="81HZie0nHQL.jpg" alt="Computadora de escritorio" />
+                <h4>PC de Escritorio Dell</h4>
+                <p>Equipo profesional con 16 GB RAM y gráficos Intel UHD. Rendimiento estable para tu oficina.</p>
+                <button class="btn gray small">Ver más</button>
+            </div>
+
+            <div class="card-box">
+                <img src="ILTEL7.jpg" alt="Laptop gamer" />
+                <h4>Laptop Gamer ASUS ROG</h4>
+                <p>Rendimiento extremo con GPU dedicada, 32 GB RAM y pantalla 144 Hz. Perfecta para gaming.</p>
+                <button class="btn gray small">Ver más</button>
+            </div>
+
+            <div class="card-box">
+                <img src="MONITOR.jpg" alt="Setup de escritorio" />
+                <h4>Setup Completo</h4>
+                <p>Monitor de 27”, teclado mecánico y torre con refrigeración avanzada. Ideal para creadores.</p>
+                <button class="btn gray small">Ver más</button>
+            </div>
+
+            <div class="card-box">
+                <img src="GAMERPC.jpg" alt="Laptop de alto rendimiento" />
+                <h4>PC Gamer RGB</h4>
+                <p>Procesador de alto rendimiento, 32 GB RAM y gráfica dedicada. Diseñada para gaming exigente.</p>
+                <button class="btn gray small">Ver más</button>
+            </div>
+
+            <div class="card-box">
+                <img src="15759large.jpg" alt="Laptop para diseño" />
+                <h4>MacBook / Ultrabook</h4>
+                <p>Ligera y potente, excelente para diseño y edición. Gran autonomía y pantalla de alta calidad.</p>
+                <button class="btn gray small">Ver más</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer-grid">
+        <div class="footer-left">
+            <img src="logoempresa.PNG" alt="Logo de la empresa" class="footer-logo" />
+            <div class="social-icons">
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X" /></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" /></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" /></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" alt="LinkedIn" /></a>
+            </div>
+        </div>
+
+        <div class="footer-columns">
+            <div class="footer-col">
+                <h4>Casos de uso</h4>
+                <a href="#">Diseño UI</a>
+                <a href="#">Diseño UX</a>
+                <a href="#">Wireframing</a>
+                <a href="#">Diagramación</a>
+                <a href="#">Lluvia de ideas</a>
+                <a href="#">Pizarra online</a>
+                <a href="#">Colaboración en equipo</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Explorar</h4>
+                <a href="#">Diseño</a>
+                <a href="#">Prototipado</a>
+                <a href="#">Desarrollo</a>
+                <a href="#">Sistemas de diseño</a>
+                <a href="#">Colaboración</a>
+                <a href="#">Proceso de diseño</a>
+                <a href="#">FigJam</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Recursos</h4>
+                <a href="#">Blog</a>
+                <a href="#">Buenas prácticas</a>
+                <a href="#">Colores</a>
+                <a href="#">Rueda de color</a>
+                <a href="#">Soporte</a>
+                <a href="#">Desarrolladores</a>
+                <a href="#">Biblioteca de recursos</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
